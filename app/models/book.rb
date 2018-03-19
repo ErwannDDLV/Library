@@ -4,5 +4,5 @@ class Book < ApplicationRecord
     attr_accessor :title, :author, :resume, :state
 
     validates :title, presence: true, uniqueness: true
-    validates :author, presence
+    validates :author, presence: true
 end
