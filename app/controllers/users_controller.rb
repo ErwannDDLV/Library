@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    before_action :set_user, only: [:show, :destroy]
+    before_action :set_user, only: [:show, :destroy, :update]
 
     def index
         @users = User.all
@@ -13,6 +13,10 @@ class UsersController < ApplicationController
         @user = User.new(user_params)
         @user.save
         redirect_to user_path(@user)
+    end
+
+    def update
+        @user.update(user_params)
     end
 
     def destroy
