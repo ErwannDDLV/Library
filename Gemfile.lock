@@ -1,6 +1,8 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    aasm (4.12.3)
+      concurrent-ruby (~> 1.0)
     actioncable (5.1.5)
       actionpack (= 5.1.5)
       nio4r (~> 2.0)
@@ -54,6 +56,8 @@ GEM
     crass (1.0.3)
     erubi (1.7.1)
     execjs (2.7.0)
+    faker (1.8.7)
+      i18n (>= 0.7)
     ffi (1.9.23)
     figaro (1.1.1)
       thor (~> 0.14)
@@ -152,6 +156,8 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    sweetalert2 (4.0.11)
+      railties (>= 3.1.0)
     thor (0.20.0)
     thread_safe (0.3.6)
     tilt (2.0.8)
@@ -176,9 +182,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  aasm (~> 4.12, >= 4.12.3)
   autoprefixer-rails
   bootsnap
   bootstrap-sass (~> 3.3)
+  faker (~> 1.8, >= 1.8.7)
   figaro
   font-awesome-sass (~> 4.7)
   jbuilder (~> 2.0)
@@ -193,6 +201,7 @@ DEPENDENCIES
   simple_form
   spring
   spring-watcher-listen (~> 2.0.0)
+  sweetalert2 (~> 4.0, >= 4.0.11)
   uglifier
   web-console (>= 3.3.0)
   webpacker

@@ -1,7 +1,13 @@
-<h1> TEST </h1>
-  <% @books.each do |book| %>
-    
-    <h2><%= link_to book.title, book_path(book) %></h2>
-    <p><%= book.author %></p>
 
+  <% @books.each do |book| %>
+    <ul>
+      <li>
+        <h3><%= link_to book.title, book_path(book) %></h2>
+        <% if book.state == true %>
+          <%= "book is free"%>
+        <% else %>
+          <%= "can't take this book"%>
+        <% end %>
+      </li>
+    </ul>
   <% end %>

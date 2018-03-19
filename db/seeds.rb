@@ -21,10 +21,11 @@ puts 'Creating users...'
 end
 
 puts 'Creating books...'
-20.times do |i|
+30.times do |i|
     Book.create([
         title: Faker::Book.title, 
         author: Faker::Book.author, 
-        resume: Faker::Lorem.paragraph
+        resume: Faker::Lorem.paragraph,
+        state: [true, false].sample
     ])
 end
