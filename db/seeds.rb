@@ -11,12 +11,20 @@ require 'faker'
 User.destroy_all
 Book.destroy_all
 
-50.times do :
-    user = User.new([{ first_name: Faker::Name.first_name,
-                        last_name: Faker::Name.last_name,
-                        email: Faker::Internet.email}])
-    
-    book = Book.new([{ title: Faker::Book.title, 
-                        author: Faker::Book.author, 
-                        resume: Faker::Lorem.paragraph}])
+puts 'Creating users...'
+20.times do |i|
+    User.create([
+        first_name: Faker::Name.first_name,
+        last_name: Faker::Name.last_name,
+        email: Faker::Internet.email
+    ])
+end
+
+puts 'Creating books...'
+20.times do |i|
+    Book.create([
+        title: Faker::Book.title, 
+        author: Faker::Book.author, 
+        resume: Faker::Lorem.paragraph
+    ])
 end

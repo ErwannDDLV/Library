@@ -1,7 +1,5 @@
 class Book < ApplicationRecord
-    belongs_to :user
-
-    attr_accessor :title, :author, :resume, :state
+    belongs_to :user, optional: true
 
     validates :title, presence: true, uniqueness: true
     validates :author, presence: true
