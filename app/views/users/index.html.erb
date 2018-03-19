@@ -1,0 +1,10 @@
+<h1> TEST </h1>
+<div class="col-xs-12">
+    <% @users.each do |user| %>
+        <ul>
+            <li>
+                <h2><%= link_to user.first_name, user_path(user) %></h2>
+            </li>
+        </ul>
+    <% end %>
+</div>
