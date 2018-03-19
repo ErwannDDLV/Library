@@ -12,6 +12,10 @@ class BooksController < ApplicationController
     def edit
     end
 
+    def borrowed
+        @books = Book.where(state: true)
+    end
+
     def destroy
         @book.destroy
 
