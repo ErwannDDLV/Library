@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
   root to: 'pages#home'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  resources :books
+
+  get "users", to: "users#index"
+
+  get "users/:id", to: "users#show"
+
+  delete "users/:id", to: "users#destroy"
 end
