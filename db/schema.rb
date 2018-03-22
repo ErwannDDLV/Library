@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180322144119) do
+ActiveRecord::Schema.define(version: 20180322170810) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,9 +20,9 @@ ActiveRecord::Schema.define(version: 20180322144119) do
     t.string "author"
     t.text "resume"
     t.boolean "is_available"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id"
     t.index ["user_id"], name: "index_books_on_user_id"
   end
 
@@ -32,6 +32,10 @@ ActiveRecord::Schema.define(version: 20180322144119) do
     t.string "last_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "avatar_file_name"
+    t.string "avatar_content_type"
+    t.integer "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   add_foreign_key "books", "users"
