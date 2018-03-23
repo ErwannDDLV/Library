@@ -1,13 +1,50 @@
+<div class="wrapper">
 
-  <% @books.each do |book| %>
-    <ul>
-      <li>
-        <h3><%= link_to book.title, book_path(book) %></h2>
-        <% if book.state == true %>
-          <%= "book is free"%>
-        <% else %>
-          <%= "can't take this book"%>
+  <div class="container">
+    <table class="table table-hover table-responsive table-sm" id="book_table">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Title</th>
+          <th scope="col">Availabilty</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @books.each do |book| %>
+          <tr class="<%= book.is_available == false ? 'table-danger' : 'table-primary'%>", onclick="window.location='<%= book_path(book) %>'">
+            <td scope="row"><%= book.id %></td>
+            <td><%= book.title %></td>
+            <% if book.is_available == true %>
+              <td>book is free</td>
+            <% else %>
+              <td>book not available</td>
+            <% end %>
+          </tr>
         <% end %>
-      </li>
-    </ul>
-  <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <% @books.each do |book| %>    
+        <div class="col-xs-12 col-sm-4">
+          <div class="book" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');", onclick="window.location='<%= book_path(book) %>'">
+            <div class="book-category">
+              <% if book.is_available == true %>
+                <p>book is free</p>
+              <% else %>
+                <p>book not available</p>
+              <% end %>
+            </div>
+            <div class="book-description">
+              <h2><%= book.title %></h2>
+              <p><%= book.author %></p>
+            </div>
+            <img class="book-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

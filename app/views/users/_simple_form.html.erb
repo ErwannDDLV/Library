@@ -1,6 +1,12 @@
-<%= simple_form_for @user do |f| %>
-    <%= f.input :first_name %>
-    <%= f.input :last_name %>
-    <%= f.input :email %>
-    <%= f.button :submit %>
-<% end %>
+<div class="wrapper">
+    <div class="container">
+        <div class="col-xs-12">
+            
+            <%= simple_form_for @user do |f| %>
+                <%= f.input :first_name %>
+                <%= f.input :last_name %>
+                <%= f.input :email %>
+                <%= f.button :submit %>
+            <% end %>
+    </div>
+</div>
