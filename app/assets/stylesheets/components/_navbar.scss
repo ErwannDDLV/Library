@@ -1,14 +1,14 @@
 /* Main navbar */
 .navbar-wagon {
-  border-bottom: 1px gray solid;
+  border-bottom: 1px $light-blue solid;
   box-shadow: 0 1px 10px 0 rgba(0,0,0,0.07);
-  background: white;
   transition: all 0.3s ease;
   height: 70px;
   padding: 0px 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background-color: white;
 }
 /* Navbar home*/ 
 .navbar-home {

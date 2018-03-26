@@ -1,0 +1,23 @@
+.form-search {
+  min-width: 320px;
+  margin: auto;
+  height: 35px;
+}
+
+.form-search-input {
+  flex: 0 1 300px;
+  transition: all 0.15s ease;
+  line-height: 40px;
+  font-weight: lighter;
+  color: $gray-base;
+  border: 1px solid $blue;
+  background-color: white;
+  border-radius: 10px;
+  font-size: 14px;
+  outline: none;
+  max-height: 35px;
+}
+
+.form-group{
+  margin-bottom: 0;
+}
