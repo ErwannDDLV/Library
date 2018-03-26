@@ -1,10 +1,38 @@
+<div id="wrapper">
+  <div class="container">
+    <h1>BOOK LIST</h1>
+  </div>
+</div> 
+
+<div id="wrapper">
+  <div class="container">
+    <% @books.each do |book| %>
+      <div class="col-sm-6 col-xs-12"> 
+        <% if @books.count == 0 %>
+          <h1>NO BOOK</h1>
+        <% else %>
+          <div class="book_link <%= book.is_available == false ? 'book_inavailable' : ''%>", onclick="window.location='<%= book_path(book) %>'">
+            <a href="books/<%= book.id %>">
+              <%= image_tag book.book_cover.url(:book_index) %>
+            </a>
+            <%= book.title%>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div> 
+
+
+
+
 <div class="wrapper">
 
   <div class="container">
     <table class="table table-hover table-responsive table-sm" id="book_table">
       <thead class="thead-light">
         <tr>
-          <th scope="col">#</th>
+          <th scope="col"></th>
           <th scope="col">Title</th>
           <th scope="col">Availabilty</th>
         </tr>
@@ -12,7 +40,7 @@
       <tbody>
         <% @books.each do |book| %>
           <tr class="<%= book.is_available == false ? 'table-danger' : 'table-primary'%>", onclick="window.location='<%= book_path(book) %>'">
-            <td scope="row"><%= book.id %></td>
+            <td scope="row"><%= image_tag book.book_cover.url(:book_index) %></td>
             <td><%= book.title %></td>
             <% if book.is_available == true %>
               <td>book is free</td>
@@ -25,26 +53,4 @@
     </table>
   </div>
 
-  <div class="container">
-    <div class="row">
-      <% @books.each do |book| %>    
-        <div class="col-xs-12 col-sm-4">
-          <div class="book" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');", onclick="window.location='<%= book_path(book) %>'">
-            <div class="book-category">
-              <% if book.is_available == true %>
-                <p>book is free</p>
-              <% else %>
-                <p>book not available</p>
-              <% end %>
-            </div>
-            <div class="book-description">
-              <h2><%= book.title %></h2>
-              <p><%= book.author %></p>
-            </div>
-            <img class="book-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
-          </div>
-        </div>
-      <% end %>
-    </div>
-  </div>
 </div>
