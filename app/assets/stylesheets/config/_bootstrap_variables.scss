@@ -24,6 +24,13 @@ $border-radius-base:  2px;
 $border-radius-large: 2px;
 $border-radius-small: 2px;
 
+.btn-outline-primary{
+  color: #007bff;
+  background-color: transparent;
+  background-image: none;
+  border-color: #007bff;
+}
+
 // Override other variables below!
 .table-danger {
   background-color: #f6c5cb;  

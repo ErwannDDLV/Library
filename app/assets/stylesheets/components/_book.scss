@@ -1,6 +1,4 @@
 .book {
-    height: 250px;
-    width: 180px;
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
     background-size: cover !important;
     background-position: center;
@@ -8,6 +6,7 @@
     position: relative;
     margin: 20px 5px;
 }
+
 .book-user {
     position: absolute;
     right: 10px;
@@ -15,13 +14,7 @@
     width: 40px;
     border-radius: 50%;
 }
-.book-category {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    font-size: 15px;
-    text-transform: uppercase;
-}
+
 .book-description {
     position: absolute;
     bottom: 10px;
@@ -37,14 +30,21 @@
 }
 .book-link {
     position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
     width: 100%;
     z-index: 2;
     background: black;
     opacity: 0;
+    margin-top: 20px;
+    padding: 15px;
+    a {
+        text-decoration: none;
+    }
 }
 .book-link:hover {
     opacity: 0.1;
+}
+
+.book_inavailable {
+  -webkit-filter: grayscale(1);
+  filter: grayscale(1);
 }
