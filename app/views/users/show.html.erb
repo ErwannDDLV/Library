@@ -1,17 +1,9 @@
-<div class="wrapper">
+
   <div class="container">
     <h1><%= @user.first_name%> <%= @user.last_name%></h1>
+    <%= image_tag @user.avatar.url(:thumb) %>
 
     <%= link_to "Edit", edit_user_path(@user) %>
 
-    <%= link_to "Delete", @user,
-      method: :delete,
-      data: { confirm: 'Are you sure?' }%>
-
-
-    <%= form_for @user, url: users_path, html: { multipart: true } do |form| %>
-      <%= form.file_field :avatar %>
-      <%= form.submit %>
-    <% end %>
+    <%= link_to "Delete", @user, method: :delete, data: { confirm: 'Are you sure?' }%>
   </div>
-</div>

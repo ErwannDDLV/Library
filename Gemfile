@@ -20,6 +20,7 @@ gem 'bootsnap', require: false
 gem 'aasm', '~> 4.12', '>= 4.12.3'
 gem 'sweetalert2', '~> 4.0', '>= 4.0.11'
 gem 'faker', '~> 1.8', '>= 1.8.7'
+gem "paperclip", "~> 6.0.0"
 
 group :development do
   gem 'web-console', '>= 3.3.0'

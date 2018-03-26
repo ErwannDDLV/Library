@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     def create
         @user = User.new(user_params)
         if @user.save
-            redirect_to @user
+            redirect_to @user, notice: 'User Save'
         else
             render 'new'
         end
@@ -25,8 +25,11 @@ class UsersController < ApplicationController
     end
 
     def update
-        @user.update(user_params)
-        redirect_to user_path
+        if @user.update(user_params)
+            redirect_to @user
+        else
+            render 'index'
+        end
     end
 
     def destroy
@@ -42,6 +45,6 @@ class UsersController < ApplicationController
     end
 
     def user_params
-        params.require(:user).permit(:email, :first_name, :last_name)
+        params.require(:user).permit(:email, :first_name, :last_name, :avatar)
     end 
 end

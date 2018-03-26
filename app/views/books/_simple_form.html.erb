@@ -1,5 +1,6 @@
 <%= simple_form_for @book do |f| %>
-    <%= f.input :title %>
-    <%= f.input :author %>
+    <%= f.file_field :book_cover %>
+    <%= f.input :title, label: "Book title" %>
+    <%= f.input :author, label: "Written by" %>
     <%= f.button :submit %>
 <% end %>
