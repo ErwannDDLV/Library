@@ -1,8 +1,8 @@
-.form-search {
-  min-width: 320px;
-  margin: auto;
-  height: 35px;
-}
+// .form-search {
+//   min-width: 320px;
+//   margin: auto;
+//   height: 35px;
+// }
 
 .form-search-input {
   flex: 0 1 300px;
@@ -19,5 +19,7 @@
 }
 
 .form-group{
-  margin-bottom: 0;
+  min-width: 320px;
+  margin: auto;
+  height: 35px;
 }

@@ -1,56 +1,36 @@
-<div id="wrapper">
-  <div class="container">
-    <h1>BOOK LIST</h1>
+<div id="wrapper-top">
+  <div class="head-container">
+    <h1>BOOKS LIST</h1>
+  </div>
+  <div class="head-container">
+    <div class="col-xs-2">
+      <%= link_to 'Back', url_for(:back), class: 'btn-back' %></div>
+    <div class="col-xs-8"><%= render 'shared/search-bar', placeholder: "find a book"%></div>
+    <div class="col-xs-2">
+      <%= button_to "New Book", new_book_path, class: "btn-edit", method: :get %>
+    </div>
   </div>
 </div> 
 
 <div id="wrapper">
   <div class="container">
     <% @books.each do |book| %>
-      <div class="col-sm-6 col-xs-12"> 
+      <div class="col-md-4 col-xs-12"> 
         <% if @books.count == 0 %>
           <h1>NO BOOK</h1>
         <% else %>
-          <div class="book_link <%= book.is_available == false ? 'book_inavailable' : ''%>", onclick="window.location='<%= book_path(book) %>'">
-            <a href="books/<%= book.id %>">
-              <%= image_tag book.book_cover.url(:book_index) %>
-            </a>
-            <%= book.title%>
+          <div class="book_link">
+            <%= link_to book_path(book) do %>
+              <div class=" <%= book.is_available == false ? 'book_inavailable' : ''%>", onclick="window.location='<%= book_path(book) %>'">
+                  <%= image_tag book.book_cover.url(:book_index), class: "book-image" %>
+              </div>
+            <% end %>
+            <div class="book-title">
+              <p><%= book.title%></p>
+            </div>
           </div>
         <% end %>
       </div>
     <% end %>
   </div>
 </div> 
-
-
-
-
-<div class="wrapper">
-
-  <div class="container">
-    <table class="table table-hover table-responsive table-sm" id="book_table">
-      <thead class="thead-light">
-        <tr>
-          <th scope="col"></th>
-          <th scope="col">Title</th>
-          <th scope="col">Availabilty</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @books.each do |book| %>
-          <tr class="<%= book.is_available == false ? 'table-danger' : 'table-primary'%>", onclick="window.location='<%= book_path(book) %>'">
-            <td scope="row"><%= image_tag book.book_cover.url(:book_index) %></td>
-            <td><%= book.title %></td>
-            <% if book.is_available == true %>
-              <td>book is free</td>
-            <% else %>
-              <td>book not available</td>
-            <% end %>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
-
-</div>

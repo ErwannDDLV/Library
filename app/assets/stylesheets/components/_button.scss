@@ -28,18 +28,19 @@
     }
 }
 
-.btn-treehouse {
-    color: white;
-    padding: 10px 15px;
-    border-radius: 4px;
-    font-weight: bold;
-    background: #6AD58B;
-    transition: background 0.3s ease;
-}
-.btn-treehouse:hover {
+.btn-back {
+    color: $green;
+    background-color:white;
+    border: 1px solid $green;
+    padding: 3px 15px;
+    border-radius: 10px;
+    font-weight: lighter;
     opacity: 1;
-    background: #3ac162;
-    text-decoration: none;
-    color: white;
+    height: 35px;
+    &:hover {
+        text-decoration: none;
+        color: $green;
+        opacity: 0.4;
+    }
 }
   

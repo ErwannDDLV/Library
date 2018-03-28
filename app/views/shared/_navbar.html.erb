@@ -13,4 +13,18 @@
     <a href="" class="navbar-wagon-item navbar-wagon-link">Return book</a>
 
   </div>
+
+  <!-- Dropdown appearing on mobile only -->
+    <div class="navbar-wagon-item hidden-md hidden-lg">
+      <div class="dropdown">
+        <i class="fas fa-bars fa-2x dropdown-toggle" data-toggle="dropdown"></i>
+        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+          <li><%= link_to 'Users', users_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
+          <li><%= link_to 'Books', books_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
+          <li><a href="" class="navbar-wagon-item navbar-wagon-link">Borrow book</a></li>
+          <li><a href="" class="navbar-wagon-item navbar-wagon-link">Return book</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>

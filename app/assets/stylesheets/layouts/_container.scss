@@ -1,4 +1,4 @@
-.container{
+.container {
     margin:0 auto;
     padding: 5px;
 }
@@ -7,4 +7,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 10px 5px;
+    h1 {
+        margin: 10px;
+        text-align: center;
+        font-size: 25px;
+        font-weight: bolder;
+        text-shadow: 2px 2px $light-orange;
+    }
 }

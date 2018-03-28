@@ -1,8 +1,13 @@
 <div id="wrapper-top">
     <div class="head-container">
+        <h1>USERS LIST</h1>
+    </div>
+    <div class="head-container">
         <div class="col-xs-2">
-            <%= link_to 'Back', url_for(:back), class: 'btn-light btn-xs' %></div>
-        <div class="col-xs-8"><%= render 'shared/search-bar' %></div>
+            <%= link_to 'Back', url_for(:back), class: 'btn-back' %></div>
+        <div class="col-xs-8">
+            <%= render 'shared/search-bar' %>
+        </div>
         <div class="col-xs-2">
             <%= button_to "Add a User", new_user_path, class: "btn-edit", method: :get %>
         </div>

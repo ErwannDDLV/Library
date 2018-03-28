@@ -1,50 +1,88 @@
-.book {
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
-    background-size: cover !important;
-    background-position: center;
-    color: white;
-    position: relative;
-    margin: 20px 5px;
+@mixin background-title {
+	box-sizing: border-box;
+	background-color: #fff;
+	border-radius: 5px;
+    box-shadow: 1px 1px 1px 1px #ccc;
+    padding: 20px 20px;
 }
 
-.book-user {
-    position: absolute;
-    right: 10px;
-    top: 10px;
-    width: 40px;
-    border-radius: 50%;
+.book-image {
+    height: 350px;
+	width: 250px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    @include background-title;
+    opacity: 1;
+    a:hover{
+        opacity: 0.5;
+    }
 }
 
-.book-description {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
+.book-title {
+    p {
+        font-size: 14px;
+        opacity: 0.7;
+        font-weight: lighter;
+    }
 }
-.book-description h2 {
-    font-size: 24px;
-}
-.book-description p {
-    font-size: 14px;
-    opacity: 0.7;
-    font-weight: lighter;
-}
+
 .book-link {
     position: absolute;
     width: 100%;
     z-index: 2;
     background: black;
     opacity: 0;
-    margin-top: 20px;
-    padding: 15px;
-    a {
-        text-decoration: none;
+    a:hover{
+        opacity: 0.5;
     }
-}
-.book-link:hover {
-    opacity: 0.1;
 }
 
 .book_inavailable {
   -webkit-filter: grayscale(1);
   filter: grayscale(1);
+}
+
+
+/* BOOK */
+.book-show {
+	height: 475px;
+	width: 325px;
+	@include background-title;
+}
+
+.book-info {
+	@include background-title;
+
+	.book-title {
+		margin-top: 0;
+		font-size: 2em;
+	}
+
+	.avg-rating {
+		font-size: 1.5em;
+		margin-top: 15px;
+		margin-bottom: 5px;
+	}
+
+	.number-of-reviews {
+		font-size: 0.85em;
+		font-style: italic;
+	}
+
+	.book-author {
+		font-size: 1.5em;
+		margin-top: 10px;
+		margin-bottom: 10px;
+		span {
+			font-size: 0.80em;
+		}	
+	}
+
+	.book-desc {
+		font-size: 1.05em;
+		line-height: 1.5;
+		margin-bottom: 15px;
+		margin-top: 15px;
+	}
+
 }

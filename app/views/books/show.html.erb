@@ -1,15 +1,42 @@
-<div>
-      <h1>Title : <%= @book.title%></h1>
-      <h3>written by : <%= @book.author%></h3>
-      <p>Resume : </p>
-      <p><%= @book.resume%></p>
-      <a href="books/<%= @book.id %>">
-            <%= image_tag @book.book_cover.url(:book_show) %>
-      </a>
+<div id="wrapper-top">
+      <div class="head-container">
+            <div class="col-md-3 col-xs-2">
+                  <%= link_to 'Back', url_for(:back), class: 'btn-back' %>
+            </div>
+            <div class="col-md-3 col-xs-2">
+                  <h1>BOOKS LIST</h1>
+            </div>
+            <div class="col-md-3 col-xs-2">
+                  <%= link_to 'Edit', edit_book_path(@book), class: "btn-edit" %>
+            </div>
+            <div class="col-md-3 col-xs-2">
+                  <%= link_to "Delete", @book, class: "btn-delete", method: :delete, data: { confirm: 'Are you sure?' }%>
+            </div>
+      </div>
+</div> 
+
+<div id="wrapper">
+      <div class="container">
+            <div class="col-md-4">
+
+                  <%= image_tag @book.book_cover.url(:book_show), class: "book-show" %>
+
+            </div>
+
+            <div class="col-md-8">
+
+                  <div class="book-info">
+
+                        <h2 class="book-title"><%= @book.title %></h2>
+                        <h3 class="book-author"><span>From</span> <%= @book.author %></h3>
+                        <p class="book-desc"><%= @book.resume %></p>
+                  </div>
+            </div>
+            <div class="col-md-3 col-xs-2">
+                  <%= link_to 'Edit', edit_book_path(@book), class: "btn-edit" %>
+            </div>
+            <div class="col-md-3 col-xs-2">
+                  <%= link_to "Delete", @book, class: "btn-delete", method: :delete, data: { confirm: 'Are you sure?' }%>
+            </div>
+      </div>
 </div>
-
-<%= link_to 'Edit', edit_book_path(@book) %>
-
-<%= link_to "Delete", @user, method: :delete, data: { confirm: 'Are you sure?' }%>
-
-<%= link_to 'Back', root_path %>
