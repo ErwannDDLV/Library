@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180323154551) do
+ActiveRecord::Schema.define(version: 20180330113851) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,15 +19,22 @@ ActiveRecord::Schema.define(version: 20180323154551) do
     t.string "title"
     t.string "author"
     t.text "resume"
-    t.boolean "is_available"
-    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "book_cover_file_name"
     t.string "book_cover_content_type"
     t.integer "book_cover_file_size"
     t.datetime "book_cover_updated_at"
-    t.index ["user_id"], name: "index_books_on_user_id"
+    t.string "aasm_state"
+  end
+
+  create_table "reservations", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "book_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["book_id"], name: "index_reservations_on_book_id"
+    t.index ["user_id"], name: "index_reservations_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -42,5 +49,6 @@ ActiveRecord::Schema.define(version: 20180323154551) do
     t.datetime "avatar_updated_at"
   end
 
-  add_foreign_key "books", "users"
+  add_foreign_key "reservations", "books"
+  add_foreign_key "reservations", "users"
 end
