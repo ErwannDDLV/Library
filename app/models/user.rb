@@ -1,6 +1,7 @@
 class User < ApplicationRecord
-    has_many :books
-
+    has_many :reservations
+    has_many :books, through: :reservations
+    
     validates :first_name, presence: true
     validates :last_name, presence: true
     validates :email, presence: true, uniqueness: true

@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   root to: 'pages#home'
 
-  resources :users
-  resources :books
-  resources :bookings
+  resources :users, :books, :reservations
 
 end
