@@ -1,16 +1,18 @@
 <div id="wrapper-top">
-  <div class="head-container">
-    <h1>BOOKS LIST</h1>
-  </div>
-  <div class="head-container">
-    <div class="col-xs-2">
-      <%= link_to 'Back', url_for(:back), class: 'btn-back' %></div>
-    <div class="col-xs-8"><%= render 'shared/search-bar', placeholder: "find a book"%></div>
-    <div class="col-xs-2">
-      <%= button_to "New Book", new_book_path, class: "btn-edit", method: :get %>
+    <div class="head-container">
+        
     </div>
-  </div>
-</div> 
+    <div class="head-container">
+        <div class="col-xs-2">
+            <%= link_to 'Back', url_for(:back), class: 'btn-back' %></div>
+        <div class="col-xs-8">
+            <h1>BOOK LIST : You have <%= @books.count%> books in your Library</h1>
+        </div>
+        <div class="col-xs-2">
+            <%= button_to "Add a Book", new_book_path, class: "btn-edit", method: :get %>
+        </div>
+    </div>
+</div>
 
 <div id="wrapper">
   <div class="container">

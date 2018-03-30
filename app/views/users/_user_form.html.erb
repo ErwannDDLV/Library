@@ -1,0 +1,8 @@
+<%= simple_form_for @user do |f| %>
+    <%= f.input :first_name, class: "form-group"%>
+    <%= f.input :last_name, class: "form-group" %>
+    <%= f.input :email, class: "form-group" %>
+    <%= f.label :image %>
+    <%= f.file_field :avatar, class:"form-group" %>
+    <%= f.button :submit, class: "btn-edit"%>
+<% end %>

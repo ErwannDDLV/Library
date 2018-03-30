@@ -2,3 +2,9 @@
     background-color: red;
     clear: both; /* Required for Webkit, but not for Gecko */
 }
+
+.form-group {
+    min-width: 320px;
+    margin: auto;
+    min-height: 92px;
+}
