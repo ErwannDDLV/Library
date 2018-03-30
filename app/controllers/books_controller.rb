@@ -18,7 +18,7 @@ class BooksController < ApplicationController
         if @book.save
             redirect_to @book
         else
-            render 'new'
+            render :new
         end
     end
 
@@ -27,7 +27,11 @@ class BooksController < ApplicationController
 
     def update
         @book.update(book_params)
-        redirect_to book_path
+        if @book.save
+            redirect_to book_path(@book)
+        else
+            render :edit
+        end
     end
 
     def borrowed
