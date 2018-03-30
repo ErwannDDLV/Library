@@ -1,12 +1,14 @@
 .container {
     margin:0 auto;
     padding: 5px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .head-container{
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     padding: 10px 5px;
     h1 {
         margin: 10px;
@@ -14,5 +16,11 @@
         font-size: 25px;
         font-weight: bolder;
         text-shadow: 2px 2px $light-orange;
+    }
+    h2 {
+        margin: 10px;
+        text-align: center;
+        font-size: 18px;
+        text-shadow: 1px 1px $light-orange;
     }
 }

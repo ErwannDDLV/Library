@@ -1,14 +1,12 @@
 <div id="wrapper-top">
     <div class="head-container">
-        
-    </div>
-    <div class="head-container">
-        <div class="col-xs-2">
-            <%= link_to 'Back', url_for(:back), class: 'btn-back' %></div>
-        <div class="col-xs-8">
+        <div class="col-xs-12 col-md-4">
+            <%= button_to 'Back', url_for(:back), class: 'btn-back' %></div>
+        <div class="col-xs-12 col-md-4">
             <h1>BOOK LIST : You have <%= @books.count%> books in your Library</h1>
+            <h2>just <%= @books.available.count%> are available</h2>
         </div>
-        <div class="col-xs-2">
+        <div class="col-xs-12 col-md-4">
             <%= button_to "Add a Book", new_book_path, class: "btn-edit", method: :get %>
         </div>
     </div>
@@ -16,21 +14,30 @@
 
 <div id="wrapper">
   <div class="container">
-    <% @books.each do |book| %>
-      <div class="col-md-4 col-xs-12"> 
-        <div class="book_link">
-          <% if book.borrowed? %>
-            <div class="book-inavailable">
-              <%= link_to image_tag(book.book_cover.url(:book_index), class: "book-image"), user_path(book.user) %>
-            </div>
-          <% else %>  
-            <%= link_to image_tag(book.book_cover.url(:book_index), class: "book-image"), book_path(book) %>
-          <% end %>
-          <div class="book-title">
-            <p><%= book.title%></p>
+      <div class="row">
+    
+        <% @books.each do |book| %>
+          <div class="col-xs-6 col-md-4">
+            <% if book.available? %>
+              <div class="book-available">
+                <%= link_to image_tag(book.book_cover.url(:book_index), class:"book-cover-available"), book_path(book) %>
+              </div>
+              <div class="book-title">
+                <p><%= book.title%></p>
+              </div>
+            <% elsif book.borrowed? %>
+              <div class="book-borrowed">
+                <%= link_to image_tag(book.book_cover.url(:book_index), class: "book-cover-borrowed"), book_path(book) %>
+              </div>
+              <div class="book-title">
+                <p><%= book.title%> (borrowed by : <%= book.user.first_name %>) </p>
+              </div>
+            <% end %>
           </div>
-        </div>
+        <% end %>
+
       </div>
-    <% end %>
   </div>
 </div> 
+
+
