@@ -1,6 +1,8 @@
 <%= simple_form_for @book do |f| %>
     <%= f.input :title, label: "Book title", class: "form-group"%>
     <%= f.input :author, label: "Written by", class: "form-group" %>
+    <%= f.input_field :resume, label: "Add a resume", class: "form-group" %>
+
     <%= f.label :"choose a book cover" %>
     <%= f.file_field :book_cover %>
     <%= f.button :submit %>

@@ -1,15 +1,22 @@
 <div id="wrapper-top">
-    <div class="head-container">
-        <div class="col-xs-12 col-md-4">
-            <%= button_to 'Back', url_for(:back), class: 'btn-back' %></div>
-        <div class="col-xs-12 col-md-4">
-            <h1>BOOK LIST : You have <%= @books.count%> books in your Library</h1>
-            <h2>just <%= @books.available.count%> are available</h2>
-        </div>
-        <div class="col-xs-12 col-md-4">
-            <%= button_to "Add a Book", new_book_path, class: "btn-edit", method: :get %>
-        </div>
+  <div class="head-container">
+    <div class="row">
+      <div class="col-xs-2 col-md-2">
+        <%= button_to 'All users', users_path, class: 'btn-back', method: :get %>
+      </div>
     </div>
+
+    <div class="col-xs-8 col-md-8">
+      <h1>BOOK LIST : You have <%= @books.count%> books in your Library</h1>
+      <h2>just <%= @books.available.count%> are available</h2>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-4 col-md-4">
+        <%= button_to "Add a Book", new_book_path, class: "btn-edit", method: :get %>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div id="wrapper">
@@ -22,15 +29,16 @@
               <div class="book-available">
                 <%= link_to image_tag(book.book_cover.url(:book_index), class:"book-cover-available"), book_path(book) %>
               </div>
-              <div class="book-title">
-                <p><%= book.title%></p>
+              <div class="book-title-index">
+                <%= book.title%>
               </div>
             <% elsif book.borrowed? %>
               <div class="book-borrowed">
                 <%= link_to image_tag(book.book_cover.url(:book_index), class: "book-cover-borrowed"), book_path(book) %>
               </div>
-              <div class="book-title">
-                <p><%= book.title%> (borrowed by : <%= book.user.first_name %>) </p>
+              <div class="book-title-index">
+                <%= book.title%>
+                <p> (borrowed by : <%= book.user.first_name %>)</p> 
               </div>
             <% end %>
           </div>

@@ -14,8 +14,8 @@ class BooksController < ApplicationController
 
     def create
         @book = Book.new(book_params)
-       
         if @book.save
+            flash[:notice] = " '#{@book.title}' has been added !"
             redirect_to @book
         else
             render :new
@@ -29,6 +29,7 @@ class BooksController < ApplicationController
         @book.update(book_params)
         if @book.save
             redirect_to book_path(@book)
+            flash[:notice] = "Book updated"
         else
             render :edit
         end
@@ -39,9 +40,12 @@ class BooksController < ApplicationController
     end
 
     def destroy
-        @book.destroy
-
-        redirect_to books_path
+        if @book.destroy
+            redirect_to books_path
+            flash[:alert] = "Book has been deleted"
+        else
+            render :edit
+        end
     end
 
     private
@@ -51,7 +55,6 @@ class BooksController < ApplicationController
     end
 
     def book_params
-        params.require(:book).permit(:title, :author, :resume, :book_cover)
+        params.require(:book).permit(:title, :author, :resume, :aasm_state,)
     end
-
 end

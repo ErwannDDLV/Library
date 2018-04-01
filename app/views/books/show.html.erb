@@ -5,21 +5,33 @@
                   <%= image_tag @book.book_cover.url(:book_show), class: "book-show" %>
             </div>
 
-            <div class="col-md-5 col-offset-md-7">
+            <div class="col-md-8">
                   <div class="book-info">
                         <h2 class="book-title"><%= @book.title %></h2>
-                        <h3 class="book-author"><span>From</span> <%= @book.author %></h3>
-                        <p class="book-desc"><%= @book.resume %></p>
+                        <h3 class="book-author"><span>written by :</span> <%= @book.author %></h3>
+                        <p class="book-resume"><%= @book.resume %></p>
                   </div>
             </div>
       </div>
 
       <div class="container">
-            <div class="col-md-3 col-xs-2">
-                  <%= button_to 'Edit', edit_book_path(@book), class: "btn-edit" %>
-            </div>
-            <div class="col-md-3 col-xs-2">
-                  <%= button_to "Delete", @book, class: "btn-delete", method: :delete, data: { confirm: 'Are you sure?' }%>
+            <div class="row">
+                  <div class="global-card-link">
+                        <%= button_to "Edit", edit_book_path(@book), method: :get, class: "btn-edit"%>
+                        <% if @book.available? %>
+                              <%= button_to "Delete", @book, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn-delete"%>
+                        <% end %>
+                  </div>
             </div>
       </div>
+
+      <div class="container">
+            <% if @book.borrowed? %>
+                  <h4>This book is borrowed by <%= @book.user.first_name %> <%@book.user.last_name%>
+                  <%= link_to image_tag(@book.user.avatar.url(:thumb), class:"avatar-small"), user_path(@book.user) %><h4>
+            <% else %>
+                  <h4>this book is available</h4>
+            <% end %>
+      </div>
+
 </div>
