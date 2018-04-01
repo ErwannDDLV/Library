@@ -1,20 +1,60 @@
 
 <div id="wrapper">
-  <div class="container">  
-    <div class="card-show">
-      <div class="card-user">
-        <%= image_tag @user.avatar.url(:thumb), class: "avatar-square"%>
-      </div>
-      <div class="card-name-show">
-          <h2>Name : <%= "#{@user.first_name}  #{@user.last_name}"%></h2>
-          <p>Email : <%= @user.email%></p>
-        </div>
-    </div>
-    <p>User.book.count</p>
 
-    <div class="global-card-link">
-        <%= link_to "Edit", edit_user_path(@user), method: :get, data: { confirm: 'Are you sure?' }, class: "btn-edit"%>
-        <%= link_to "Delete", @user, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn-delete"%>
+  <div class="container">
+      <div class="card-show">
+        <div class="col-md-3">
+          <div class="card-user">
+            <%= image_tag @user.avatar.url(:thumb), class: "avatar-square"%>
+          </div>
+        </div>
+        <div class="col-md-7">
+          <div class="card-name-show">
+            <h2>Name : <%= "#{@user.first_name}  #{@user.last_name}"%></h2>
+            <p>Email : <%= @user.email%></p>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="global-card-link">
+          <%= button_to "Edit", edit_user_path(@user), method: :get, class: "btn-edit"%>
+          <% if (@user.books).count < 0 %>
+            <%= button_to "Delete", @user, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn-delete"%>
+          <% end %>
+      </div>
     </div>
   </div>
+  
+  <hr>
+
+  <div class="container">
+    <div class="row">
+      <% if (@user.books).count > 0 %>
+        <h2>Books borrowed : <%= "#{(@user.books).count}" %></h2>
+        <div class="table-responsive-md">
+          <table class="table table-hover table-bordered">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col">TITLE</th>
+                  <th scope="col">WRITTEN BY</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @user.books.each do |book| %>
+                    <td><%= link_to book.title, book_path(book) %></td>
+                    <td><%= book.author %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+          </table>
+        </div>
+      <% else %>
+        <h1>No book borrowed</h1>
+      <% end %>
+    </div>
+  </div>
+
 </div>

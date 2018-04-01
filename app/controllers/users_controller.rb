@@ -15,7 +15,8 @@ class UsersController < ApplicationController
     def create
         @user = User.new(user_params)
         if @user.save
-            redirect_to @user, notice: 'User Save'
+            flash[:notice] = "#{@user.first_name} #{@user.last_name} added"
+            redirect_to @user
         else
             render 'new'
         end
@@ -33,9 +34,12 @@ class UsersController < ApplicationController
     end
 
     def destroy
-        @user.destroy
-    
-        redirect_to users_path
+        if @user.destroy
+            redirect_to users_path
+            flash[:alert] = "User has been deleted"
+        else
+            render 'edit'
+        end
     end
 
     private
