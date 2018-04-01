@@ -1,0 +1,15 @@
+table{
+    border: 1px solid black;
+    table-layout: fixed;
+    min-width: 200px;
+}
+
+th, td {
+    border: 1px solid black;
+    width: 100px;
+}
+
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+    background-color: $light-orange;  
+}
+    

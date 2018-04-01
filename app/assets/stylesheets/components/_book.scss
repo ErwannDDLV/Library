@@ -39,10 +39,46 @@
 	filter: grayscale(1);
 }
 
-.book-title {
-    p {
-        font-size: 14px;
-        opacity: 0.7;
+.book-title-index {
+	margin: 3px;
+	font-size: 14px;
+	p{
+		font-weight: lighter;
+		font-size: 11px;
+	}
+
+}
+
+
+.book-show {
+	box-sizing: border-box;
+	border-radius: 5px;
+    box-shadow: 1px 1px 1px 1px #ccc;
+    height: 350px;
+	width: 250px;
+    margin-top: 30px;
+	margin-bottom: 10px;
+	background-color: white
+	img{
+		height: 400px;
+	}
+}
+
+.book-info{
+	.book-title {
+        margin: 30px 10px 50px 10px;
+        text-align: center;
+        font-size: 30px;
+        font-weight: bolder;
+        text-shadow: 2px 2px $light-orange;
+	}
+	.book-author {
+        margin: 20px 10px 30px 10px;
+        text-align: center;
+        font-size: 20px;
+	}
+	.book-resume {
+        font-size: 16px;
         font-weight: lighter;
     }
 }
