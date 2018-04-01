@@ -12,6 +12,9 @@
   </head>
   <body>
     <%= render 'shared/navbar' %>
+      <% flash.each do |key, value| %>
+        <%= content_tag(:div, value, id:"#{key}", class: flash_class(key)) %>
+      <% end %>
     <%= yield %>
     <%= render 'shared/footer' %>
     <%= javascript_include_tag 'application' %>
