@@ -1,9 +1,16 @@
 <%= simple_form_for @book do |f| %>
-    <%= f.input :title, label: "Book title", class: "form-group"%>
-    <%= f.input :author, label: "Written by", class: "form-group" %>
-    <%= f.input_field :resume, label: "Add a resume", class: "form-group" %>
+    <div class="form">
+        <%= f.input :title, label: "Book title", class: "form-group"%>
+        <%= f.input :author, label: "Written by", class: "form-group" %>
+        <div class="form-text-field">
+            <%= f.label :'Add resume' %>
+            <%= f.input_field :resume, class: "form-group" %>
+        </div>
+        <div class="form-group">
+            <%= f.label :'book cover' %>
+            <%= f.file_field :book_cover %>
+        </div>
+        <%= f.button :submit, class: 'btn-edit' %>
 
-    <%= f.label :"choose a book cover" %>
-    <%= f.file_field :book_cover %>
-    <%= f.button :submit %>
+    </div>
 <% end %>
