@@ -21,27 +21,31 @@
 
 <div id="wrapper">
   <div class="container">
-      <div class="row align-items-center">
+      <div class="row">
     
         <% @books.each do |book| %>
-          <div class="col-xs-6 col-md-4">
-            <% if book.available? %>
-              <div class="book-available">
-                <%= link_to image_tag(book.book_cover.url(:book_index), class:"book-cover-available"), book_path(book) %>
+        
+            <div class="col-md-4 col-xs-6 ">
+              <div class="book-index-box">
+                <% if book.available? %>
+                  <div class="book-available">
+                    <%= link_to image_tag(book.book_cover.url(:book_index), class:"book-cover-available"), book_path(book) %>
+                  </div>
+                  <div class="book-title-index">
+                    <%= book.title%>
+                  </div>
+                <% else book.borrowed? %>
+                  <div class="book-borrowed">
+                    <%= link_to image_tag(book.book_cover.url(:book_index), class: "book-cover-borrowed"), book_path(book) %>
+                  </div>
+                  <div class="book-title-index">
+                    <%= book.title%>
+                    <p> (borrowed by : <%= book.user.first_name %>)</p> 
+                  </div>
+                <% end %>
               </div>
-              <div class="book-title-index">
-                <%= book.title%>
-              </div>
-            <% else book.borrowed? %>
-              <div class="book-borrowed">
-                <%= link_to image_tag(book.book_cover.url(:book_index), class: "book-cover-borrowed"), book_path(book) %>
-              </div>
-              <div class="book-title-index">
-                <%= book.title%>
-                <p> (borrowed by : <%= book.user.first_name %>)</p> 
-              </div>
-            <% end %>
-          </div>
+            </div>
+
         <% end %>
 
       </div>
