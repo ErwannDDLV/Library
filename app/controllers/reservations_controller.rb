@@ -1,8 +1,8 @@
 class ReservationsController < ApplicationController
 
     def index
-    @reservations = Reservation.all
-    @reservation  = Reservation.new
+        @reservations = Reservation.all
+        @reservation  = Reservation.new
     end
 
     def new
@@ -28,7 +28,7 @@ class ReservationsController < ApplicationController
         @book = @reservation.book
         @book.return!
         @reservation.delete
-        redirect_to reservations_path
+        redirect_to books_path
         flash[:notice] = "#{@book.title} is available"
     end
 

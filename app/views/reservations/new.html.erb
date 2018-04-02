@@ -1,16 +1,14 @@
 <div id="wrapper">
     <div class="container">
         <div class="row">
-            <div class="col-xs-12 col-sm-8">
-                <h1>Borrow a book</h1>
-                <div class="form-container">
-                    <%= simple_form_for @reservation do |f| %>
+            <h1>Borrow a book</h1>
+            <%= simple_form_for @reservation do |f| %>
+                <div class="form">
                     <%= f.input :user_id, collection: @users, label_method: :email, prompt: "Select a user" %>
                     <%= f.input :book_id, collection: @books, label_method: :title, prompt: "Select a book" %>
                     <%= f.submit class: "btn btn-edit"%>
-                    <% end %>
                 </div>
-            </div>
+            <% end %>
         </div>
     </div>
 </div>

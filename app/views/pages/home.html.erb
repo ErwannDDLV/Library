@@ -2,12 +2,20 @@
 
 <div class="banner">
   <div class="banner-content text-center">
-    <h1>La Bilbliothèque d'Erwann</h1>
-    <p>ededieuleveult@gmail.com</p>
+    <h1>Erwann's Library</h1>
+    <a href="https://github.com/ErwannDDLV" target="_blank">
+      <i class="fab fa-github-square fa-3x"></i>
+    </a>
+    <h2>You have <%= Book.count %> books </h2>
+    <p>(<%= Book.available.count %> are available / <%= Book.borrowed.count %> are borrowed)</p>
+    
+    <h2>You have <%= User.count %> users</h2>
+    <% if (User.borrowed_book).all.count > 0 %>
+      <p><%= (User.borrowed_book).all.count %> borrowed a book</p>
+    <% else %>
+      <p> Anyone borrowed a book</p>
+    <% end %>
 
-    <div class="linkedin">
-      <a href="https://www.linkedin.com/in/erwannddlv" target="_blank"><i class="fab fa-linkedin fa-3x"></i></a>
-    </div>
   </div>
 </div>
 
