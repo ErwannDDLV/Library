@@ -2,12 +2,12 @@
     border-radius: 10px;
     font-weight: lighter;
     margin: 3px;
-    opacity: 1;
     background-color:white;
     &:hover {
         text-decoration: none;
         cursor: pointer;
-        opacity: 0.4;
+        color: white;
+        border: 1px solid white;
     }
 }
 
@@ -16,7 +16,7 @@
     color: $blue;
     border: 1px solid $blue;
     &:hover {
-        color: $blue;
+        background-color: $blue;
     }
 }
 
@@ -25,7 +25,7 @@
     color: $red;
     border: 1px solid $red;
     &:hover {
-        color: $red;
+        background-color: $red;
     }
 }
 
@@ -34,7 +34,7 @@
     color: $green;
     border: 1px solid $green;
     &:hover {
-        color: $green;
+        background-color: $green;
     }
 }
   
