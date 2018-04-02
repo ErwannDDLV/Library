@@ -21,7 +21,7 @@
 
 <div id="wrapper">
   <div class="container">
-      <div class="row">
+      <div class="row align-items-center">
     
         <% @books.each do |book| %>
           <div class="col-xs-6 col-md-4">
@@ -32,7 +32,7 @@
               <div class="book-title-index">
                 <%= book.title%>
               </div>
-            <% elsif book.borrowed? %>
+            <% else book.borrowed? %>
               <div class="book-borrowed">
                 <%= link_to image_tag(book.book_cover.url(:book_index), class: "book-cover-borrowed"), book_path(book) %>
               </div>
